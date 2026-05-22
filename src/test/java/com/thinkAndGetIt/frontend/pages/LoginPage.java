@@ -9,7 +9,6 @@ public class LoginPage {
     private String emailInput= "input[type='email']";
     private String passwordInput= "input[type='password']";
     private String loginButton= "button[type='submit']";
-    private String errorMessage= "button[type='submit']";
 
     public LoginPage(Page page) {
         this.page = page;

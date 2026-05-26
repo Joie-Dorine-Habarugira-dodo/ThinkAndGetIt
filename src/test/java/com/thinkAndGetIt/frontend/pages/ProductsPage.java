@@ -86,17 +86,6 @@ public class ProductsPage {
         color(color).click();
     }
 
-    public boolean areAllProductsOfSelectedColor(String color) {
-        Locator visibleProducts= page.locator(productCards).filter(new Locator.FilterOptions().setVisible(true));
-        int count = visibleProducts.count();
-        for (int i = 0; i < count; i++) {
-            String productText= visibleProducts.nth(i).textContent().trim();
-            if(!productText.contains(color)){
-                return false;
-            }
-        }
-        return true;
-    }
     public void selectSpecial(String special, boolean enable){
         if(special(special).isChecked() !=enable){
             special(special).click();

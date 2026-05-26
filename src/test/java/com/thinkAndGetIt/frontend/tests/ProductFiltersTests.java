@@ -40,18 +40,25 @@ public class ProductFiltersTests extends BaseTest {
 
     @Test
     public void colorFilter(){
-        productsPage.selectSize("Red");
+        productsPage.selectColor("Red");
         page.waitForTimeout(15000);
         Assert.assertTrue(productsPage.hasProducts() || productsPage.isNoResultsDisplayed());
     }
 
     @Test
     public void specialFilter(){
-        productsPage.selectSize("Featured");
+        productsPage.selectSpecial("Featured", true);
         page.waitForTimeout(15000);
         Assert.assertTrue(productsPage.hasProducts() || productsPage.isNoResultsDisplayed());
     }
 
+    @Test
+    public void testCombinedFilters() {
+        productsPage.selectCategory("Bags & Luggage");
+        productsPage.setPriceRange(15, 80);
+        page.waitForTimeout(15000);
+        Assert.assertTrue(productsPage.hasProducts() || productsPage.isNoResultsDisplayed());
+    }
 
 
 
